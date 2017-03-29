@@ -21,15 +21,36 @@ O botão 'READ DATA', tem a função de habilitar e desabilitar o controle do te
 
 A biblioteca é bem simples de ser utilizada!
 
-Antes de tudo, instale a [bilioteca](https://github.com/AsafeSilva/KeyboardControl/tree/master/Arduino) na IDE do Arduino (Se não souber como faz da uma *googlada*), ou copie os arquivos da pasta ['Arduino/src'](https://github.com/AsafeSilva/KeyboardControl/tree/master/Arduino/src) na pasta do seu projeto.
+Antes de tudo, instale a [bilioteca](https://github.com/AsafeSilva/KeyboardControl/tree/master/Arduino) na IDE do Arduino (Se não souber como faz, da uma *googlada*), ou copie os arquivos da pasta ['Arduino/src'](https://github.com/AsafeSilva/KeyboardControl/tree/master/Arduino/src) na pasta do seu projeto.
 
-Feito isso, você estará pronto pra programar!
+Feito isso, você estará pronto para programar!
 
 Primeiramente inclua a biblioteca:
 
-```ruby
+```
 #include "KeyboardControl.h"
 ```
 
-A biblioteca é composta por apenas 3 métodos além dos construtores.
+- A classe possui dois construtores:
+
+Se a comunicação com o PC for através da porta USB da própria placa, ou seja, utilizando a comunicação Serial do próprio hardware (Pinos RX [0], TX [1]), use o construtor *default*:
+
+```
+KeyboardControl key;
+```
+
+Caso esteja usando a bilioteca SoftwareSerial, primeiro crie sua variável do tipo SoftwareSerial e passe-a como parâmetro no construtor:
+
+```
+#include <SoftwareSerial.h>
+
+SoftwareSerial serial(7, 8); // RX, TX
+
+KeyboardControl key(&serial);
+```
+
+Lembre-se de chamar, no `void setup` o método `begin()` com o *baudrate* de 9600
+```
+Serial.begin(9600);
+```
 
