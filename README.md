@@ -55,7 +55,7 @@ Serial.begin(9600);
 ```
 
 
-A bilioteca possui 3 métodos:
+A biblioteca possui 3 métodos:
 
 ```
 // Pressionar tecla 
@@ -69,3 +69,10 @@ key.keyRelease(int keycode);
 // Pressionar e soltar tecla
 key.keyClick(int keycode);
 ```
+
+Todos os três, recebem um parâmetro que é a tecla que é pressionada.
+Para saber as teclas disponível, basta olhar o arquivo ['KeyCodes.h'](https://github.com/AsafeSilva/KeyboardControl/blob/master/Arduino/src/KeyCodes.h).
+Esta bilioteca se comunica com o software no PC que utiliza a API *java.awt.Robot*. Onde sua clássica documentação pode ser encontrada [aqui](https://docs.oracle.com/javase/7/docs/api/java/awt/Robot.html). Todos os comandos foram retirados desta API, que estão listados [aqui](https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.awt.event.KeyEvent.VK_0)! 
+*Caso queira utilizar mais comandos que não estejam na `KeyCodes.h`, por favor, comunicar!*
+
+Exemplos de uso da bilioteca podem ser visto na pasta ['Arduino/examples'](https://github.com/AsafeSilva/KeyboardControl/tree/master/Arduino/examples)
