@@ -54,3 +54,18 @@ Lembre-se de chamar, no `void setup` o método `begin()` com o *baudrate* de 960
 Serial.begin(9600);
 ```
 
+
+A bilioteca possui 3 métodos:
+
+```
+// Pressionar tecla 
+key.keyPress(int keycode);
+```
+```
+// Soltar tecla
+key.keyRelease(int keycode);
+```
+```
+// Pressionar e soltar tecla
+key.keyClick(int keycode);
+```
